@@ -7,11 +7,20 @@
  */
 void add(stack_t **stack, unsigned int line)
 {
-	if (stack == NULL)
+	/*printf("haciendo add:%d\n", line);*/
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
 	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
-	printf("haciendo add:%d\n", line);
+
+	temp = *stack;
+	(*stack)->next->n += (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
 }
 
 /**
