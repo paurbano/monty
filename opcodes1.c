@@ -36,12 +36,12 @@ void nop(stack_t **stack, unsigned int line)
 }
 
 /**
- * sub - subtracts top element from the second top element of the stack.
+ * subop - subtracts top element from the second top element of the stack.
  * @stack: pointer to the head node pointer of stack
  * @line: the line number
  * Return: Nothing.
  */
-void sub(stack_t **stack, unsigned int line)
+void subop(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 
@@ -59,12 +59,12 @@ void sub(stack_t **stack, unsigned int line)
 }
 
 /**
- * div - divide top element from the second top element of the stack.
+ * divop - divide top element from the second top element of the stack.
  * @stack: pointer to the head node pointer of stack
  * @line: the line number
  * Return: Nothing.
  */
-void div(stack_t **stack, unsigned int line)
+void divop(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 
@@ -82,12 +82,12 @@ void div(stack_t **stack, unsigned int line)
 }
 
 /**
- * mul - multiplies second top element with the top element of the stack.
+ * mulop - multiplies second top element with the top element of the stack.
  * @stack: pointer to the head node pointer of stack
  * @line: the line number
  * Return: Nothing.
  */
-void mul(stack_t **stack, unsigned int line)
+void mulop(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 

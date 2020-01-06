@@ -61,7 +61,9 @@ void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
 	instruction_t opcodes[] = {{"pall", pall},
 				   {"pint", pint}, {"pop", pop},
 				   {"swap", swap}, {"add", add},
-				   {"nop", nop}, {NULL, NULL}};
+				   {"nop", nop}, {"sub", subop},
+				   {"mul", mulop}, {"div", divop},
+				   {NULL, NULL}};
 
 	/*(void)stack;*/
 	/*(void)line;*/
