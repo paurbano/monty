@@ -18,9 +18,7 @@ void processfile(FILE *file)
 	{
 		line_number++;
 		opcode = strtok(line, " \n");
-
 		/*printf("opcode antes de:%s\n", opcode);*/
-
 		if (opcode == NULL || strcmp(opcode, "#") == 0)
 			continue;
 		if (strcmp(opcode, "push") == 0)
@@ -70,7 +68,7 @@ void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
 	/*(void)opcode;*/
 	/*printf("opcode parametro:%s, linea:%d\n", opcode,line);*/
 
-	for ( ; i < 7; i++)
+	for ( ; i < 9; i++)
 	{
 		/*printf("opcode del struct:%s\n",opcodes[i].opcode);*/
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
