@@ -29,7 +29,7 @@ void processfile(FILE *file)
 			arg = strtok(NULL, " \n");
 			if (arg != NULL && valid_arg(arg))
 			{
-				get_opcode_func(opcode, &stack, line_number);
+				push(&stack, line_number, arg);
 			}
 			else
 			{
@@ -58,7 +58,7 @@ void processfile(FILE *file)
 void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
 {
 	int i = 0;
-	instruction_t opcodes[] = {{"push", push}, {"pall", pall},
+	instruction_t opcodes[] = {{"pall", pall},
 				   {"pint", pint}, {"pop", pop},
 				   {"swap", swap}, {"add", add},
 				   {"nop", nop}, {NULL, NULL}};

@@ -4,11 +4,11 @@
  * push - pushes a node to the top of stack
  * @stack: pointer to the head node pointer of stack
  * @line: the line number
- *
+ * @arg: arguments
  * Return: Nothing.
  */
 
-void push(stack_t **stack, unsigned int line)
+void push(stack_t **stack, unsigned int line, char *arg)
 {
 	stack_t *node = NULL;
 
@@ -28,7 +28,7 @@ void push(stack_t **stack, unsigned int line)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	node->n = (int)line;
+	node->n = atoi(arg);
 	node->prev = NULL;
 	node->next = *stack;
 	if (*stack)
@@ -67,7 +67,7 @@ void pall(stack_t **stack, unsigned int line)
 void pint(stack_t **stack, unsigned int line)
 {
 /*printf("haciendo pint:%d\n", line);*/
-	stack_t temp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL)
 	{
@@ -75,13 +75,14 @@ void pint(stack_t **stack, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 
+	temp = *stack;
 	while (temp)
 	{
 		if (temp->prev == NULL)
 			break;
 		temp = temp->prev;
 	}
-	printf("%d\n", temp->);
+	printf("%d\n", temp->n);
 }
 
 /**
