@@ -75,6 +75,11 @@ void divop(stack_t **stack, unsigned int line)
 	}
 
 	temp = *stack;
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		exit(EXIT_FAILURE);
+	}
 	(*stack)->next->n /= (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
