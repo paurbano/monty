@@ -74,6 +74,7 @@ void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
 		{
 			opcodes[i].f(stack, line);
+			free(opcode);
 			return;
 		}
 	}
