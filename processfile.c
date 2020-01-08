@@ -32,16 +32,19 @@ void processfile(FILE *file)
 			else
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				free(opcode);
+				free_stack(&stack);
+				fclose(file);
 				exit(EXIT_FAILURE);
 			}
 		}
 		else
 		{
 			/*printf("opcode difpush:%s\n", opcode);*/
-			get_opcode_func(opcode, &stack, line_number);
+			get_opcode_func(opcode, &stack, line_number, file);
 		}
 	}
-	/*free(line);*/
+	free(opcode);
 	free_stack(&stack);
 }
 
@@ -50,10 +53,11 @@ void processfile(FILE *file)
  * @opcode: code to execute
  * @stack: structure to use
  * @line: number of line
+ * @f: file
  * Description:  return 1 if is, 0 if not
  * Return: int
  */
-void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
+void get_opcode_func(char *opcode, stack_t **stack, unsigned int line, FILE *f)
 {
 	int i = 0;
 	instruction_t opcodes[] = {{"pall", pall},
@@ -74,13 +78,14 @@ void get_opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
 		{
 			opcodes[i].f(stack, line);
-			free(opcode);
 			return;
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
 	free(opcode);
 	free_stack(stack);
+	fclose(f);
+	exit(EXIT_FAILURE);
 }
 
 /**

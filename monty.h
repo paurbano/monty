@@ -50,7 +50,7 @@ void mulop(stack_t **stack, unsigned int line_number);
 void modop(stack_t **stack, unsigned int line_number);
 
 void free_stack(stack_t **head);
-void get_opcode_func(char *opcode, stack_t **stack, unsigned int line);
+void get_opcode_func(char *opcde, stack_t **stack, unsigned int line, FILE *f);
 void processfile(FILE *file);
 bool valid_arg(char *arg);
 #endif
