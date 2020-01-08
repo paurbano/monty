@@ -41,7 +41,7 @@ void processfile(FILE *file)
 			get_opcode_func(opcode, &stack, line_number);
 		}
 	}
-	free(line);
+	/*free(line);*/
 	free_stack(&stack);
 }
 
