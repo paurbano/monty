@@ -65,14 +65,14 @@ void get_opcode_func(char *opcode, stack_t **stack, unsigned int line, FILE *f)
 				   {"swap", swap}, {"add", add},
 				   {"nop", nop}, {"sub", subop},
 				   {"mul", mulop}, {"div", divop},
-				   {NULL, NULL}};
+				   {"mod", modop}, {NULL, NULL}};
 
 	/*(void)stack;*/
 	/*(void)line;*/
 	/*(void)opcode;*/
 	/*printf("opcode parametro:%s, linea:%d\n", opcode,line);*/
 
-	for ( ; i < 9; i++)
+	for ( ; i < 10; i++)
 	{
 		/*printf("opcode del struct:%s\n",opcodes[i].opcode);*/
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
