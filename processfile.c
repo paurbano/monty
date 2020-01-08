@@ -19,7 +19,7 @@ void processfile(FILE *file)
 		line_number++;
 		opcode = strtok(line, " \n");
 		/*printf("opcode antes de:%s\n", opcode);*/
-		if (opcode == NULL || strcmp(opcode, "#") == 0)
+		if (opcode == NULL || strchr(opcode, '#') != NULL)
 			continue;
 		if (strcmp(opcode, "push") == 0)
 		{
